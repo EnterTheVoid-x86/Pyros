@@ -5,7 +5,7 @@ print("Type 'shutdown' to shutdown")
 def main():
     try:
      while True:
-        line = input("\033[1;34;40m Pyr\033[1;33;40mos$>\033[1;37;40m ")
+        line = input("\033[1;34;40mPyr\033[1;33;40mos$>\033[1;37;40m ")
         if line == "shutdown":
             print("Exiting...")
             break
