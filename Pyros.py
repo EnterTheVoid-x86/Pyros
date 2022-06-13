@@ -27,6 +27,7 @@ def main():
             print("touch - create a file")
             print("clock - open a clock")
             print("clear - clear the screen")
+            print("PyrosDebugTools - self explanitory.")
             print("shutdown - shutdown Pyros")
         elif line == "calculator":
             calculator()
@@ -54,6 +55,8 @@ def main():
             exec(open("clock.py").read())
         elif line == "clear":
             os.system("clear")
+        elif line == "PyrosDebugTools":
+            exec(open("debug.py").read())
         else:
             print("Unknown command")
     except KeyboardInterrupt:
