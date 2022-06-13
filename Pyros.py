@@ -51,7 +51,7 @@ def calculator():
                     print("Exiting...")
                     main()
                 else:
-                    print(eval(line))
+                    print(eval(line2))
 def loader():
 # Load a program in python
     print("Enter the name of the program to load or type exit: ")
