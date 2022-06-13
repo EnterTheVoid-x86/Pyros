@@ -1,7 +1,13 @@
 # Pyros kernel, an operating system made in python
+# Created by EnterTheVoid-x86, (C) 2022
+# Using only python standard libraries
 import os
-print("Pyros v1.0")
+print("Pyros v1.1")
 print("Type 'shutdown' to shutdown")
+import time
+t = time.localtime()
+current_time = time.strftime("%H:%M:%S", t)
+print("The time is: "+ current_time)
 def main():
     try:
      while True:
@@ -18,6 +24,9 @@ def main():
             print("colorlist - list colors")
             print("numberguess - number guessing game")
             print("psh - Unix shell")
+            print("touch - create a file")
+            print("clock - open a clock")
+            print("clear - clear the screen")
             print("shutdown - shutdown Pyros")
         elif line == "calculator":
             calculator()
@@ -37,11 +46,19 @@ def main():
             exec(open("numberguess.py").read())
         elif line == "psh":
             exec(open("PyShell.py").read())
+        elif line == "touch":
+            print("Enter file name to create:")
+            filename = input(">> ")
+            open(filename, "x")
+        elif line == "clock":
+            exec(open("clock.py").read())
+        elif line == "clear":
+            os.system("clear")
         else:
             print("Unknown command")
     except KeyboardInterrupt:
-        print("^C")
-        main()
+            print("KeyboardInterrupt")
+            main()
 def calculator():
 # Calculator in python
             print("Type 'exit' to exit")
