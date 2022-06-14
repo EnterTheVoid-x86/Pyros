@@ -8,4 +8,6 @@ if inp == "1":
   os.system("killall python3")
   os.system("killall python")
   os.system("killall py")
+elif inp == "2":
+  exit()
   

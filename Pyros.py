@@ -1,14 +1,23 @@
 # Pyros kernel, an operating system made in python
 # Created by EnterTheVoid-x86, (C) 2022
 # Using only python standard libraries
+passwd = "pyros"
 import os
-print("Pyros v1.1")
+print("Pyros v1.2")
 print("Type 'shutdown' to shutdown")
 import time
 import platform
 t = time.localtime()
 current_time = time.strftime("%H:%M:%S", t)
 print("The time is: "+ current_time)
+def password():
+    passprompt = input("Please enter your password: >> ")
+    if passprompt == passwd:
+      print("Welcome to Pyros.")
+      main()
+    else:
+      print("Wrong password.")
+      password()
 def main():
     try:
      while True:
@@ -29,8 +38,9 @@ def main():
             print("clock - open a clock")
             print("clear - clear the screen")
             print("PyrosDebugTools - self explanitory.")
-            print("shutdown - shutdown Pyros")
             print("moduleloader - load a module")
+            print("sysinfo - small system info script")
+            print("shutdown - shutdown Pyros")
         elif line == "calculator":
             calculator()
         elif line == "shutdown":
@@ -67,6 +77,15 @@ def main():
             line5 = input(">> ")
             import importlib
             i = importlib.import_module(line5)
+        elif line == "sysinfo":
+          print("Pyros v1.1")
+          print("Running on " + platform.system())
+          os.system("uptime")
+          mem_bytes = os.sysconf('SC_PAGE_SIZE') *     os.sysconf('SC_PHYS_PAGES')  # e.g. 4015976448
+          mem_gib = mem_bytes/(1024.**3)  # e.g. 3.74
+          print(mem_gib, "gigabytes of memory")
+          os.system("cat ascii.txt")
+          print("\n")
         else:
             print("Unknown command")
     except KeyboardInterrupt:
@@ -91,4 +110,4 @@ def loader():
         main()
     else:
         exec(open(line3).read())
-main()
+password()
