@@ -5,6 +5,7 @@ import os
 print("Pyros v1.1")
 print("Type 'shutdown' to shutdown")
 import time
+import platform
 t = time.localtime()
 current_time = time.strftime("%H:%M:%S", t)
 print("The time is: "+ current_time)
@@ -29,6 +30,7 @@ def main():
             print("clear - clear the screen")
             print("PyrosDebugTools - self explanitory.")
             print("shutdown - shutdown Pyros")
+            print("moduleloader - load a module")
         elif line == "calculator":
             calculator()
         elif line == "shutdown":
@@ -54,9 +56,17 @@ def main():
         elif line == "clock":
             exec(open("clock.py").read())
         elif line == "clear":
-            os.system("clear")
+            if platform.system() == "Windows":
+                os.system("cls")
+            else:
+                os.system("clear")
         elif line == "PyrosDebugTools":
             exec(open("debug.py").read())
+        elif line == "moduleloader":
+            print("Enter the name of the module to load: ")
+            line5 = input(">> ")
+            import importlib
+            i = importlib.import_module(line5)
         else:
             print("Unknown command")
     except KeyboardInterrupt:
