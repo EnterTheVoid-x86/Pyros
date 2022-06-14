@@ -3,6 +3,7 @@
 # Using only python standard libraries
 passwd = "pyros"
 import os
+PATH = os.getcwd()
 print("Pyros v1.2")
 print("Type 'shutdown' to shutdown")
 import time
@@ -35,6 +36,8 @@ def main():
             print("numberguess - number guessing game")
             print("psh - Unix shell")
             print("touch - create a file")
+            print("mkdir - create a directory")
+            print("rm - delete a directory or file")
             print("clock - open a clock")
             print("clear - clear the screen")
             print("PyrosDebugTools - self explanitory.")
@@ -54,24 +57,24 @@ def main():
         elif line == "ls":
             print(os.listdir())
         elif line == "colorlist":
-            exec(open("colorlist.py").read())
+            exec(open(PATH + "/colorlist.py").read())
         elif line == "numberguess":
-            exec(open("numberguess.py").read())
+            exec(open(PATH + "/numberguess.py").read())
         elif line == "psh":
-            exec(open("PyShell.py").read())
+            exec(open(PATH + "/PyShell.py").read())
         elif line == "touch":
             print("Enter file name to create:")
             filename = input(">> ")
             open(filename, "x")
         elif line == "clock":
-            exec(open("clock.py").read())
+            exec(open(PATH + "/clock.py").read())
         elif line == "clear":
             if platform.system() == "Windows":
                 os.system("cls")
             else:
                 os.system("clear")
         elif line == "PyrosDebugTools":
-            exec(open("debug.py").read())
+            exec(open(PATH + "/debug.py").read())
         elif line == "moduleloader":
             print("Enter the name of the module to load: ")
             line5 = input(">> ")
@@ -86,8 +89,17 @@ def main():
           print(mem_gib, "gigabytes of memory")
           os.system("cat ascii.txt")
           print("\n")
+        elif line == "mkdir":
+          mkdir = input("Enter directory name to be created: >> ")
+          os.mkdir(mkdir)
+        elif line == "rm":
+          rm = input("Enter file or folder name to be deleted: >> ")
+          if platform.system() == "Windows":
+            os.system("del " + rm)
+          else:
+            os.system("rm -rf " + rm)
         else:
-            print("Unknown command")
+            print("Command not recognized.")
     except KeyboardInterrupt:
             print("KeyboardInterrupt")
             main()
