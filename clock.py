@@ -5,7 +5,7 @@ def clock():
     import time
 
     t = time.localtime()
-    current_time = time.strftime("%H:%M:%S", t)
+    current_time = time.strftime("%I:%M:%S", t)
     print(current_time)
     time.sleep(1)
     os.system("clear")

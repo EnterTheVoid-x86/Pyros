@@ -1,15 +1,15 @@
-# Pyros kernel, an operating system made in python
+# Pyros kernel, an "operating system" made in python
 # Created by EnterTheVoid-x86, (C) 2022
 # Using only python standard libraries
 passwd = "pyros"
 import os
 PATH = os.getcwd()
-print("Pyros v1.2")
+print("Pyros v1.3")
 print("Type 'shutdown' to shutdown")
 import time
 import platform
 t = time.localtime()
-current_time = time.strftime("%H:%M:%S", t)
+current_time = time.strftime("%I:%M", t)
 print("The time is: "+ current_time)
 def password():
     passprompt = input("Please enter your password: >> ")
@@ -24,7 +24,7 @@ def main():
      while True:
         line = input("\033[1;34;40mPyr\033[1;33;40mos$>\033[1;37;40m ")
         if line == "shutdown":
-            print("Exiting...")
+            print("Shutting down...")
             break
         elif line == "help":
             print("help - This help menu")
@@ -46,8 +46,6 @@ def main():
             print("shutdown - shutdown Pyros")
         elif line == "calculator":
             calculator()
-        elif line == "shutdown":
-            exit()
         elif line == "loader":
             loader()
         elif line == "cd":
@@ -67,6 +65,8 @@ def main():
             filename = input(">> ")
             open(filename, "x")
         elif line == "clock":
+            os.system("cls")
+            os.system("clear")
             exec(open(PATH + "/clock.py").read())
         elif line == "clear":
             if platform.system() == "Windows":
@@ -81,8 +81,9 @@ def main():
             import importlib
             importlib.import_module(line5)
         elif line == "sysinfo":
-          print("Pyros v1.2")
+          print("Pyros v1.3")
           print("Running on " + platform.system())
+          print("Created by etvx86")
           os.system("uptime")
           mem_bytes = os.sysconf('SC_PAGE_SIZE') *     os.sysconf('SC_PHYS_PAGES')  # e.g. 4015976448
           mem_gib = mem_bytes/(1024.**3)  # e.g. 3.74
@@ -102,6 +103,9 @@ def main():
             print("Command not recognized.")
     except KeyboardInterrupt:
             print("KeyboardInterrupt")
+            main()
+    except EOFError:
+            print("^DEOFAttempt")
             main()
 def calculator():
 # Calculator in python
