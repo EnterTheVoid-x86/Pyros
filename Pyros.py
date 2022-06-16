@@ -79,9 +79,9 @@ def main():
             print("Enter the name of the module to load: ")
             line5 = input(">> ")
             import importlib
-            i = importlib.import_module(line5)
+            importlib.import_module(line5)
         elif line == "sysinfo":
-          print("Pyros v1.1")
+          print("Pyros v1.2")
           print("Running on " + platform.system())
           os.system("uptime")
           mem_bytes = os.sysconf('SC_PAGE_SIZE') *     os.sysconf('SC_PHYS_PAGES')  # e.g. 4015976448
