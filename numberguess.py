@@ -1,7 +1,6 @@
 # Number guessing game
 print ("I'm thinking of a number between 1 and 10.")
 print ("You have 5 tries to guess it.")
-print ("Type 'exit' to exit.")
 import random
 number = random.randint(1, 10)
 tries = 5
