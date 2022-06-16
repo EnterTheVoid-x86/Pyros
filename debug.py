@@ -1,4 +1,5 @@
 import os
+import platform
 print("Pyros Debug Tools v1.0")
 print("1. Kernel Panic Pyros")
 print("2. Exit")
